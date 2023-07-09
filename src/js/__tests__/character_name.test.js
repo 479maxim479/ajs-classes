@@ -2,20 +2,21 @@ import Character from '../characters';
 
 test('Наличие цифр в имени персонажа', () => {
   expect(() => {
-    return new Character(666, 'Zombie');
-    
+    const hero = new Character(121, 'Zombie');
+    return hero;
   }).toThrowError('Имя не должно содержать цифр');
 });
 
 test('Количество символов в имени персонажа', () => {
   expect(() => {
-    return new Character('c', 'Undead');
+    const hero = new Character('c', 'Undead');
+    return hero;
   }).toThrowError('Имя героя должно содержать от 2 до 10 символов');
 });
 
 test('Проверка доступности персонажа', () => {
   expect(() => {
-    return new Character('Batman', 'Robocop');
-  
+    const hero = new Character('Batman', 'Robocop');
+    return hero;
   }).toThrowError('Выберите одного из доступных : Boweman, Daemon, Magician, Swordsman, Undead, Zombie');
 });
