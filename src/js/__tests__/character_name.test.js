@@ -18,5 +18,5 @@ test('Проверка доступности персонажа', () => {
   expect(() => {
     const hero = new Character('Batman', 'Robocop');
     return hero;
-  }).toThrowError('Выберите одного из доступных : Boweman, Daemon, Magician, Swordsman, Undead, Zombie');
+  }).toThrowError('Выберите одного из доступных персонажей');
 });

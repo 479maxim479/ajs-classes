@@ -1,12 +1,7 @@
 export default class Character {
   constructor(name, type) {
-    this.name = name;
-    this.type = type;
-    this.health = 100;
-    this.level = 1;
-
     if (!Character.heroes.includes(type)) {
-      throw new Error('Выберите одного из доступных : Boweman, Daemon, Magician, Swordsman, Undead, Zombie');
+      throw new Error('Выберите одного из доступных персонажей');
     }
 
     if (typeof name !== 'string') {
@@ -16,6 +11,11 @@ export default class Character {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Имя героя должно содержать от 2 до 10 символов');
     }
+
+    this.name = name;
+    this.type = type;
+    this.health = 100;
+    this.level = 1;
   }
 
   levelUp() {
@@ -27,14 +27,12 @@ export default class Character {
     } else {
       throw new Error('Нельзя повысить уровень умершего!');
     }
-    return true;
   }
 
   damage(points) {
     if (this.health > 0) {
       this.health -= points * (1 - this.defence / 100);
-    }
-    if (this.health < 0) {
+    } else {
       this.health = 0;
     }
   }
